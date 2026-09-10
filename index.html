@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breeze Tree • 隨風搖曳之樹 | p5.js 互動藝術</title>
+  <meta name="description" content="使用 p5.js 製作的隨風擺動之樹，具備真實風動物理模擬、分形遞迴枝幹、落葉微粒與四季主題切換。">
+
+  <!-- Google Fonts: Outfit & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- p5.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Brand Header -->
+  <header class="app-header">
+    <div class="brand-badge">
+      <span class="pulse-dot"></span>
+      <span class="brand-title">BREEZE TREE</span>
+      <span class="brand-divider">/</span>
+      <span class="brand-sub">隨風擺動之樹</span>
+    </div>
+  </header>
+
+  <!-- Interactive Control Dock -->
+  <aside class="control-dock" id="controlDock" aria-label="樹木與風力控制面板">
+    <!-- Wind Slider -->
+    <div class="control-group">
+      <div class="group-header">
+        <label for="windSlider">風力強度 (Wind Force)</label>
+        <span id="windValueText" class="val-badge">45%</span>
+      </div>
+      <div class="slider-wrapper">
+        <span class="slider-icon">🍃</span>
+        <input type="range" id="windSlider" min="0" max="100" value="45" aria-label="風力大小調整">
+        <span class="slider-icon">🌪️</span>
+      </div>
+    </div>
+
+    <div class="divider-v"></div>
+
+    <!-- Season Theme Buttons -->
+    <div class="control-group">
+      <div class="group-header">
+        <label>季節主題 (Season)</label>
+      </div>
+      <div class="theme-buttons" id="themeButtons">
+        <button class="theme-btn active" data-theme="sakura" id="btnSakura" title="春季櫻花">
+          <span class="theme-icon">🌸</span> 春櫻
+        </button>
+        <button class="theme-btn" data-theme="summer" id="btnSummer" title="盛夏翠綠">
+          <span class="theme-icon">🌿</span> 盛夏
+        </button>
+        <button class="theme-btn" data-theme="autumn" id="btnAutumn" title="深秋楓紅">
+          <span class="theme-icon">🍁</span> 金秋
+        </button>
+        <button class="theme-btn" data-theme="twilight" id="btnTwilight" title="幻光夜色">
+          <span class="theme-icon">✨</span> 幻夜
+        </button>
+      </div>
+    </div>
+
+    <div class="divider-v"></div>
+
+    <!-- Action Buttons -->
+    <div class="control-group actions-group">
+      <button class="action-btn" id="btnGust" title="觸發一陣突發強風">
+        <span class="btn-icon">🌬️</span> 觸發陣風
+      </button>
+      <button class="action-btn primary" id="btnRegrow" title="重新生長一棵新型態的樹木">
+        <span class="btn-icon">🌱</span> 重新生長
+      </button>
+    </div>
+  </aside>
+
+  <!-- Bottom Hint Toast -->
+  <footer class="interaction-hint">
+    <span class="hint-icon">🖱️</span>
+    <span class="hint-text">在畫面上移動滑鼠可產生流體風場吹拂枝條與落葉</span>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="sketch.js"></script>
+</body>
+</html>
